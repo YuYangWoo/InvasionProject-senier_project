@@ -1,11 +1,14 @@
 package com.cookandroid.invasion
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    // BackpressCloseHandler 객체화
+    private val backPressCloseHandler = BackPressCloseHandler(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +24,11 @@ class MainActivity : AppCompatActivity() {
             // OptionActivity 호출
             startActivity(Intent(this, OptionActivity::class.java))
         }
-
     }
+
+    // Back 버튼을 눌렀을 때
+    override fun onBackPressed() {
+        backPressCloseHandler.onBackPressed()
+    }
+
 }
