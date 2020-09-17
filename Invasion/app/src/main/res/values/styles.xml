@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#d3d3d3</item>
     </style>
 
     <!-- No 액션바 지정 !-->

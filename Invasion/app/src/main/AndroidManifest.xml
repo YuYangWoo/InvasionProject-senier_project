@@ -20,9 +20,9 @@
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
-        <activity android:name=".LogActivity"
+        <activity android:name=".Log.LogActivity"
             />
-        <activity android:name=".OptionActivity"
+        <activity android:name=".Option.OptionActivity"
             />
     </application>
 
