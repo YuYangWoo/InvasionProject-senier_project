@@ -22,7 +22,7 @@
             />
         <activity android:name=".Log.LogActivity"
             />
-        <activity android:name=".Option.OptionActivity"
+        <activity android:name=".OptionActivity"
             />
     </application>
 
