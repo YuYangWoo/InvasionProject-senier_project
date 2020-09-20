@@ -29,7 +29,7 @@ class LogAdapter(val context: Context, val logList: ArrayList<LogItem>) : Recycl
 
     // viewHolder에 담을 Holder클래스를 지정하여 값을 연결한다
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtInfo  =    itemView.txtInfo
+        val txtInfo  =    itemView.txtInvasion
         val txtTime  =    itemView.txtTime
         val logPhoto =  itemView.logPhoto
 
