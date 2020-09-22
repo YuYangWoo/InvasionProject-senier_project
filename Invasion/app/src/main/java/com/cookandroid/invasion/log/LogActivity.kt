@@ -1,4 +1,4 @@
-package com.cookandroid.invasion.Log
+package com.cookandroid.invasion.log
 
 import android.os.Bundle
 import android.util.Log
@@ -6,16 +6,14 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.cookandroid.invasion.R
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_log.*
-import java.lang.String
 
 class LogActivity : AppCompatActivity() {
-    private lateinit var adapter: RecyclerView.Adapter<*>
+    private lateinit var logAdapter: RecyclerView.Adapter<*>
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private lateinit var arrayList: ArrayList<LogItem>
+    private lateinit var logList: ArrayList<LogItem>
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,35 +26,38 @@ class LogActivity : AppCompatActivity() {
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        recyclerView!!.setHasFixedSize(true)
+        // LinearLayoutManager 객체 생성 후 layoutManager에 대입 및 recyclerView 고정크기 On
+        recyclerView.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        arrayList = ArrayList()
+        logList = ArrayList()
+        // 파이어베이스 데이터베이스 연동
+        database = FirebaseDatabase.getInstance();
 
-        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
-        databaseReference = database!!.getReference("logList"); // DB 테이블 연결
-        databaseReference!!.addListenerForSingleValueEvent(object : ValueEventListener {
+        // DB 테이블 연결
+        databaseReference = database.getReference("logList");
+
+        // logList에 DB데이터 연결
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+
+            // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
-                arrayList!!.clear() // 기존 배열리스트가 존재하지않게 초기화
-                for (snapshot in dataSnapshot.children) { // 반복문으로 데이터 List를 추출해냄
-                    val cafeList =
-                        snapshot.getValue(LogItem::class.java) // 만들어뒀던 User 객체에 데이터를 담는다.
-                    arrayList!!.add(cafeList!!) // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
-                }
-                adapter!!.notifyDataSetChanged() // 리스트 저장 및 새로고침해야 반영이 됨
-            }
+                logList.clear() // 기존 배열리스트가 존재하지않게 초기화
 
+                for (snapshot in dataSnapshot.children) { // 반복문으로 데이터 List를 추출해냄
+                    val log = snapshot.getValue(LogItem::class.java) // 만들어뒀던 객체에 데이터를 담는다.
+                    logList.add(log!!) // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                }
+                logAdapter.notifyDataSetChanged() // 리스트 저장 및 새로고침해야 반영이 됨
+            }
+            // 디비를 가져오던중 에러 발생 시 에러문 출력
             override fun onCancelled(databaseError: DatabaseError) {
-                // 디비를 가져오던중 에러 발생 시
-                Log.e("Fraglike", databaseError.toException().toString()) // 에러문 출력
+                Log.e("Error", databaseError.toException().toString())
             }
         })
 
-        adapter = CustomAdapter(arrayList, this)
-        recyclerView.adapter = adapter // 리사이클러뷰에 어댑터 연결
-
-
+        logAdapter = CustomAdapter(logList, this)
+        recyclerView.adapter = logAdapter // 리사이클러뷰에 어댑터 연결
     }
 
     // ActionBar ItemSelected 이벤트

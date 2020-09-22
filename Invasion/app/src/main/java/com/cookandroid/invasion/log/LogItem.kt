@@ -1,4 +1,4 @@
-package com.cookandroid.invasion.Log
+package com.cookandroid.invasion.log
 
 class LogItem {
     var logInfo: String? = null

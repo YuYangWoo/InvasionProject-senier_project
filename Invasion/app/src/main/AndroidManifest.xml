@@ -23,7 +23,7 @@
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
-        <activity android:name=".Log.LogActivity"
+        <activity android:name=".log.LogActivity"
             />
         <activity android:name=".OptionActivity"
             />
