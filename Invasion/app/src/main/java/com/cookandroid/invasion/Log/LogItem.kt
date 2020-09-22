@@ -1,3 +1,7 @@
 package com.cookandroid.invasion.Log
 
-class LogItem (val logInfo: String, val logTime: String, val logPhoto: String)
+class LogItem {
+    var logInfo: String? = null
+    var logPhoto: String? = null
+    var logTime: String? = null
+}

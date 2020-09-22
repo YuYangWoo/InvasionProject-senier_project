@@ -5,31 +5,19 @@ import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.cookandroid.invasion.R
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_log.*
+import java.lang.String
 
 class LogActivity : AppCompatActivity() {
-    var abc = R.drawable.splashscreen
-    var logList = arrayListOf<LogItem>(
-        LogItem("fasd", "Fsdfsa", abc.toString()),
-        LogItem("fasd", "Fsdfsa", abc.toString()),
-        LogItem("fasd", "Fsdfsa", abc.toString())
-    )
-
-    var storage = Firebase.storage("gs://cerberus-8f761.appspot.com")
-
-    // Create a storage reference from our app
-    val storageRef = storage.reference
-
-    // 하위 위치를 가리키는 참조
-
-    val spaceRef = storageRef.child("cerb1/cue.jpg")
-
-
-
+    private lateinit var adapter: RecyclerView.Adapter<*>
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+    private lateinit var arrayList: ArrayList<LogItem>
+    private lateinit var database: FirebaseDatabase
+    private lateinit var databaseReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log)
@@ -37,22 +25,38 @@ class LogActivity : AppCompatActivity() {
         // ActionBar Title 변경
         supportActionBar?.title = "알림"
 
-        Log.d("test", logList.toString())
-
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        Glide.with(this)
-            .load(spaceRef)
-            .into(img)
-        // LogAdapter 객체 생성 후 recyclerView와 연동
-        val logAdapter = LogAdapter(this, logList)
-        recyclerView.adapter = logAdapter
+        recyclerView!!.setHasFixedSize(true)
+        layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+        arrayList = ArrayList()
 
-        // LinearLayoutManager 객체 생성 후 layoutManager에 대입
-        val linearLayoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = linearLayoutManager
-        recyclerView.setHasFixedSize(true)
+        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
+        databaseReference = database!!.getReference("logList"); // DB 테이블 연결
+        databaseReference!!.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
+                arrayList!!.clear() // 기존 배열리스트가 존재하지않게 초기화
+                for (snapshot in dataSnapshot.children) { // 반복문으로 데이터 List를 추출해냄
+                    val cafeList =
+                        snapshot.getValue(LogItem::class.java) // 만들어뒀던 User 객체에 데이터를 담는다.
+                    arrayList!!.add(cafeList!!) // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                }
+                adapter!!.notifyDataSetChanged() // 리스트 저장 및 새로고침해야 반영이 됨
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // 디비를 가져오던중 에러 발생 시
+                Log.e("Fraglike", databaseError.toException().toString()) // 에러문 출력
+            }
+        })
+
+        adapter = CustomAdapter(arrayList, this)
+        recyclerView.adapter = adapter // 리사이클러뷰에 어댑터 연결
+
+
     }
 
     // ActionBar ItemSelected 이벤트
