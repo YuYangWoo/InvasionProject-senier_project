@@ -15,4 +15,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <!-- 다이얼로그 지정 !-->
+    <style name="Theme.MyDialog" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowFixedHeightMajor">30%</item>
+        <item name="windowFixedWidthMinor">90%</item>
+    </style>
 </resources>
