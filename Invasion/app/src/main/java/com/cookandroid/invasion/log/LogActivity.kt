@@ -38,6 +38,7 @@ class LogActivity : AppCompatActivity(), OnRefreshListener {
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         logList = ArrayList()
+
         // 파이어베이스 데이터베이스 연동
         database = FirebaseDatabase.getInstance();
 
