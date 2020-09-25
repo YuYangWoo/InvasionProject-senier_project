@@ -19,19 +19,6 @@ class OptionActivity : AppCompatActivity() {
 
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        var storage = Firebase.storage("gs://cerberus-8f761.appspot.com")
-
-        // Create a storage reference from our app
-        val storageRef = storage.reference
-
-        // 하위 위치를 가리키는 참조
-
-        val spaceRef = storageRef.child("cerb1/cue.jpg")
-
-        Glide.with(this)
-            .load("gs://cerberus-8f761.appspot.com/cerb1/cue.jpg")
-            .into(img)
     }
 
     // ActionBar ItemSelected 이벤트

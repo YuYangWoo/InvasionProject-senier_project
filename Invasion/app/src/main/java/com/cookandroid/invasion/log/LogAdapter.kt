@@ -25,8 +25,8 @@ class CustomAdapter(private val logList: ArrayList<LogItem>, private val context
     // ImageView를 Glide를 사용하여 로드하고 info와 time도 대입시킨다.
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
 
-        var imagereference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/"+logList!![position].logPhoto)
-        imagereference.downloadUrl.addOnSuccessListener { Uri ->
+        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/"+logList!![position].logPhoto)
+        imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()
 
             Glide.with(holder.itemView) // 띄어줄 뷰를 명시
