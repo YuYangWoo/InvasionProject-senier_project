@@ -1,22 +1,18 @@
-package com.cookandroid.invasion.Option
+package com.cookandroid.invasion
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.cookandroid.invasion.R
-import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_optioncall.*
-import kotlinx.android.synthetic.main.list_option.*
+import com.bumptech.glide.Glide
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import kotlinx.android.synthetic.main.activity_log.*
+import kotlinx.android.synthetic.main.activity_option.*
 
 class OptionActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_option)
+        setContentView(R.layout.activity_option)
 
         // ActionBar Title 변경
         supportActionBar?.title = "설정"
@@ -24,12 +20,18 @@ class OptionActivity : AppCompatActivity() {
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val emergencyIntent = Intent(this, EmergencyOptionActivity::class.java)
+        var storage = Firebase.storage("gs://cerberus-8f761.appspot.com")
 
-        Optionbtn1.setOnClickListener {
-            startActivity(emergencyIntent)
-        }
+        // Create a storage reference from our app
+        val storageRef = storage.reference
 
+        // 하위 위치를 가리키는 참조
+
+        val spaceRef = storageRef.child("cerb1/cue.jpg")
+
+        Glide.with(this)
+            .load("gs://cerberus-8f761.appspot.com/cerb1/cue.jpg")
+            .into(img)
     }
 
     // ActionBar ItemSelected 이벤트

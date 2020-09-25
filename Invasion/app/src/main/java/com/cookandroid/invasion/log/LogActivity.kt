@@ -36,8 +36,11 @@ class LogActivity : AppCompatActivity(), OnRefreshListener {
         // LinearLayoutManager 객체 생성 후 layoutManager에 대입 및 recyclerView 고정크기 On
         recyclerView.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(this)
+        (layoutManager as LinearLayoutManager).reverseLayout = true // 거꾸로 대입
+        (layoutManager as LinearLayoutManager).stackFromEnd = true // 처음부터 끝까지
         recyclerView.layoutManager = layoutManager
         logList = ArrayList()
+
         // 파이어베이스 데이터베이스 연동
         database = FirebaseDatabase.getInstance();
 
