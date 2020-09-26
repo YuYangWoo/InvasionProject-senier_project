@@ -25,6 +25,8 @@
             />
         <activity android:name=".log.LogActivity"
             />
+        <activity android:name=".log.LogFunction"
+            />
         <activity android:name=".OptionActivity"
             />
         <activity android:name=".Option.EmergencyOptionActivity"
