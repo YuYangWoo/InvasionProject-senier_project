@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.cookandroid.invasion.Option.OptionActivity
+import com.cookandroid.invasion.OptionActivity
 import com.cookandroid.invasion.log.LogActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.eclipse.paho.android.service.MqttAndroidClient

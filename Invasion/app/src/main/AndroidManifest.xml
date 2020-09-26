@@ -25,7 +25,7 @@
             />
         <activity android:name=".log.LogActivity"
             />
-        <activity android:name=".Option.OptionActivity"
+        <activity android:name=".OptionActivity"
             />
         <activity android:name=".Option.EmergencyOptionActivity"
             />
