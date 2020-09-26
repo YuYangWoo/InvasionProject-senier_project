@@ -1,17 +1,18 @@
 package com.cookandroid.invasion.log
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cookandroid.invasion.R
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import kotlinx.android.synthetic.main.activity_option.*
 import java.util.*
 
 class CustomAdapter(private val logList: ArrayList<LogItem>, private val context: Context) : RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
@@ -25,7 +26,7 @@ class CustomAdapter(private val logList: ArrayList<LogItem>, private val context
     // ImageView를 Glide를 사용하여 로드하고 info와 time도 대입시킨다.
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
 
-        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/"+logList!![position].logPhoto)
+        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/"+ logList[position].logPhoto)
         imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()
 
@@ -43,6 +44,18 @@ class CustomAdapter(private val logList: ArrayList<LogItem>, private val context
         var info: TextView   = itemView.findViewById(R.id.txtInvasion)
         var time: TextView   = itemView.findViewById(R.id.txtTime)
 
+        init {
+            itemView.setOnClickListener {
+                var pos = adapterPosition
+                if (pos != RecyclerView.NO_POSITION) {
+                    var item = logList[pos]
+                    var intent = Intent(itemView.context, LogFunction::class.java)
+                    intent.putExtra("logPhoto", item.logPhoto)
+                    intent.putExtra("logTime",item.logTime)
+                    ContextCompat.startActivity(itemView.context,intent,null)
+                }
+            }
+        }
     }
 
     // arrayList의 크기를 가져온다

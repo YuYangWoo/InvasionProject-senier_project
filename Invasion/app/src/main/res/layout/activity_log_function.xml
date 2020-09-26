@@ -17,7 +17,7 @@
         app:layout_constraintWidth_percent="1.0">
 
         <ImageView
-            android:id="@+id/ImgDetail"
+            android:id="@+id/imgDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="1.0"
-            app:srcCompat="@drawable/splash" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,6 +46,10 @@
             android:id="@+id/txtTime"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="14dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,59 +119,63 @@
             android:id="@+id/txtEmergency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#BDBDBD"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="87dp"
             android:text="비상 연락"
-            app:layout_constraintEnd_toStartOf="@+id/txtSiren"
+            android:textColor="#BDBDBD"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnEmergency" />
 
         <TextView
             android:id="@+id/txtSiren"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#BDBDBD"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="87dp"
             android:text="경보음"
-            app:layout_constraintEnd_toStartOf="@+id/txtShowImage"
+            android:textColor="#BDBDBD"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtEmergency"
             app:layout_constraintTop_toBottomOf="@+id/btnSiren" />
 
         <TextView
             android:id="@+id/txtShowImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#BDBDBD"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
             android:text="더보기"
-            app:layout_constraintEnd_toStartOf="@+id/txtConfirm"
+            android:textColor="#BDBDBD"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/txtSiren"
             app:layout_constraintTop_toBottomOf="@+id/btnShowImage" />
 
         <TextView
             android:id="@+id/txtConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#BDBDBD"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="25dp"
             android:text="현관 확인"
-            app:layout_constraintEnd_toStartOf="@+id/txtLock"
+            android:textColor="#BDBDBD"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/txtShowImage"
             app:layout_constraintTop_toBottomOf="@+id/btnConfirm" />
 
         <TextView
             android:id="@+id/txtLock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#BDBDBD"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="23dp"
             android:text="비상 잠금"
+            android:textColor="#BDBDBD"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLock" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -108,4 +108,5 @@ class LogActivity : AppCompatActivity(), OnRefreshListener {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }
