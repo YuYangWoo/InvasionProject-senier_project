@@ -1,6 +1,7 @@
 package com.cookandroid.invasion.log
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -25,8 +26,8 @@ class LogFunction : AppCompatActivity(){
         txtTime.text = currentTime
 
         // recyclerView의 사진을 크게 띄우기
-        var nowImage = intent.getStringExtra("logPhoto").toString()
-        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/$nowImage")
+        var nowImage = intent.getStringArrayExtra("logPhoto")
+        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/" + nowImage[0])
         imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()
 
@@ -34,7 +35,6 @@ class LogFunction : AppCompatActivity(){
                 .load(imageURL) // 이미지 주소
                 .into(imgDetail) // log_function의 imageView에 띄우기
         }
-
     }
 
     // ActionBar ItemSelected 이벤트

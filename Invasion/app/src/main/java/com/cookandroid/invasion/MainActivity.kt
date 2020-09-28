@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
             MemoryPersistence(), MqttAndroidClient.Ack.AUTO_ACK
         )
 
-
         // btnLog 클릭 이벤트
         btnLog.setOnClickListener {
             // LogActivity 호출
