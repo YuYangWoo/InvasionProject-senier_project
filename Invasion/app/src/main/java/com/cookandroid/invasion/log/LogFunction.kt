@@ -22,11 +22,11 @@ class LogFunction : AppCompatActivity(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // 현재 시간 functionActivity에 적용
-        var currentTime = intent.getStringExtra("logTime").toString()
+        var currentTime = intent.getStringExtra("logTime")!!.toString()
         txtTime.text = currentTime
 
         // recyclerView의 사진을 크게 띄우기
-        var nowImage = intent.getStringArrayExtra("logPhoto")
+        var nowImage: Array<String> = intent.getStringArrayExtra("logPhoto")!!
         var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/" + nowImage[0])
         imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()

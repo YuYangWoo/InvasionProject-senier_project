@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="1.0">
 
+        <!--
         <ImageView
             android:id="@+id/imgDetail"
             android:layout_width="match_parent"
@@ -27,6 +28,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="1.0"
             />
+        !-->
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/imgDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="1.0"></com.github.chrisbanes.photoview.PhotoView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
