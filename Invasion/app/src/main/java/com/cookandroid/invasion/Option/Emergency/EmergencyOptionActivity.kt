@@ -70,6 +70,7 @@ class EmergencyOptionActivity : AppCompatActivity() {
             }
         builder.show()
     }
+
     // ActionBar ItemSelected 이벤트
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
