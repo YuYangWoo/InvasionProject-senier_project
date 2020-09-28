@@ -29,11 +29,13 @@
             />
         <activity android:name=".OptionActivity"
             />
-        <activity android:name=".Option.EmergencyOptionActivity"
+        <activity android:name=".Option.Emergency.EmergencyOptionActivity"
             />
-        <activity android:name=".Option.EmergencyOptionAddActivity"
+        <activity android:name=".Option.Emergency.EmergencyOptionAddActivity"
             android:theme="@style/Theme.MyDialog" />
         <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <activity android:name=".Option.AppInfo.AppInfoActivity"
+            />
     </application>
 
 </manifest>

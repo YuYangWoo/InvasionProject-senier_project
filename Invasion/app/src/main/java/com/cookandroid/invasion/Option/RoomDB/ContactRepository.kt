@@ -31,4 +31,5 @@ class ContactRepository(application: Application) { // DB 인스턴스 호출해
             thread.start()
         } catch (e: Exception) { }
     }
+
 }

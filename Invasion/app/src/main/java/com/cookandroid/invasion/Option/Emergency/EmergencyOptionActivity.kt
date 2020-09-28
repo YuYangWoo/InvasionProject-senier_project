@@ -1,11 +1,8 @@
-package com.cookandroid.invasion.Option
+package com.cookandroid.invasion.Option.Emergency
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
-import android.view.Window
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -36,6 +33,7 @@ class EmergencyOptionActivity : AppCompatActivity() {
             intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_NUMBER, contact.number)
             intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_ID, contact.id)
             startActivity(intent)
+
             // contact 정보 & EmergencyOptionAddActivity의 나머지 불러오기
         }, { contact ->
             deleteDialog(contact)
@@ -58,13 +56,14 @@ class EmergencyOptionActivity : AppCompatActivity() {
         button_main_insert.setOnClickListener {
             val intent = Intent(this, EmergencyOptionAddActivity::class.java)
             startActivity(intent)
+
         }
     }
 
     // 길게 눌렀을 시 데이터 삭제
     private fun deleteDialog(contact: Contact) {
         val builder = AlertDialog.Builder(this)
-        builder.setMessage("정말 지우시겠습니까>")
+        builder.setMessage("정말 지우시겠습니까?")
             .setNegativeButton("NO") { _, _ -> }
             .setPositiveButton("YES") { _, _ ->
                 contactViewModel.delete(contact)

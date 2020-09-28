@@ -1,4 +1,4 @@
-package com.cookandroid.invasion.Option
+package com.cookandroid.invasion.Option.Emergency
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

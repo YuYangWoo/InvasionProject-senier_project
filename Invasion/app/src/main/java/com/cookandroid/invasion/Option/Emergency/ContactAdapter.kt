@@ -1,4 +1,4 @@
-package com.cookandroid.invasion.Option
+package com.cookandroid.invasion.Option.Emergency
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,7 @@ class ContactAdapter(val contactItemClick: (Contact) -> Unit, val contactItemLon
     : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
     private var contacts: List<Contact> = listOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, i: Int): ContactAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.option_call, parent, false)
         return ViewHolder(view)
     }
@@ -23,7 +23,7 @@ class ContactAdapter(val contactItemClick: (Contact) -> Unit, val contactItemLon
         return contacts.size
     }
 
-    override fun onBindViewHolder(viewHolder:ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.bind(contacts[position])
     }
 

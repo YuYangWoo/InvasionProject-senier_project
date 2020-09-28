@@ -1,9 +1,8 @@
-package com.cookandroid.invasion.Option
+package com.cookandroid.invasion.Option.Emergency
 
 import android.os.Bundle
 import android.view.Window
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.cookandroid.invasion.Option.RoomDB.Contact

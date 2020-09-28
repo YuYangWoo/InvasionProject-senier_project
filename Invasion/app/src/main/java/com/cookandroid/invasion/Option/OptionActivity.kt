@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.cookandroid.invasion.Option.EmergencyOptionActivity
+import com.cookandroid.invasion.Option.AppInfo.AppInfoActivity
+import com.cookandroid.invasion.Option.Emergency.EmergencyOptionActivity
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_log.*
@@ -23,10 +24,11 @@ class OptionActivity : AppCompatActivity() {
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val emergencyIntent = Intent(this, EmergencyOptionActivity::class.java)
-
         Optionbtn1.setOnClickListener {
-            startActivity(emergencyIntent)
+            startActivity(Intent(this, EmergencyOptionActivity::class.java))
+        }
+        Optionbtn2.setOnClickListener {
+            startActivity(Intent(this, AppInfoActivity::class.java))
         }
     }
 

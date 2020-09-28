@@ -1,5 +1,6 @@
 package com.cookandroid.invasion.Option.RoomDB
 
+import androidx.annotation.CallSuper
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.cookandroid.invasion.Option.RoomDB.Contact
@@ -14,4 +15,5 @@ interface ContactDao { // SQL을 작성하기 위한 DAO 인터페이스
 
     @Delete
     fun delete(contact: Contact)
+
 }
