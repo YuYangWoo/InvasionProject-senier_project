@@ -1,5 +1,6 @@
 package com.cookandroid.invasion.log
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -35,6 +36,11 @@ class LogFunction : AppCompatActivity(){
                 .load(imageURL) // 이미지 주소
                 .into(imgDetail) // log_function의 imageView에 띄우기
         }
+
+        btnShowImage.setOnClickListener {
+            startActivity(Intent(this, LogImage::class.java))
+        }
+
     }
 
     // ActionBar ItemSelected 이벤트

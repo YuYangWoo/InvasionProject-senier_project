@@ -28,6 +28,8 @@
             />
         <activity android:name=".log.LogFunction"
             />
+        <activity android:name=".log.LogImage"
+            />
         <activity android:name=".OptionActivity"
             />
         <activity android:name=".Option.Emergency.EmergencyOptionActivity"
