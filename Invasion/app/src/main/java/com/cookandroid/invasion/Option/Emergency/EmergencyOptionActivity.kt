@@ -28,13 +28,13 @@ class EmergencyOptionActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // contactItemClick & contactItemLongClick 람다 지정
+        // contact 정보 & EmergencyOptionAddActivity의 나머지 불러오기
         val adapter = ContactAdapter({ contact ->
             val intent = Intent(this, EmergencyOptionAddActivity::class.java)
             intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_NUMBER, contact.number)
             intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_ID, contact.id)
             startActivity(intent)
 
-            // contact 정보 & EmergencyOptionAddActivity의 나머지 불러오기
         }, { contact ->
             deleteDialog(contact)
         })
@@ -60,7 +60,7 @@ class EmergencyOptionActivity : AppCompatActivity() {
         }
     }
 
-    // 길게 눌렀을 시 데이터 삭제
+        // 길게 눌렀을 시 데이터 삭제
     private fun deleteDialog(contact: Contact) {
         val builder = AlertDialog.Builder(this)
         builder.setMessage("정말 지우시겠습니까?")
@@ -70,8 +70,7 @@ class EmergencyOptionActivity : AppCompatActivity() {
             }
         builder.show()
     }
-
-    // ActionBar ItemSelected 이벤트
+        // ActionBar ItemSelected 이벤트
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> { // 뒤로가기 버튼

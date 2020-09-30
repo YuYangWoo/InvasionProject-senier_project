@@ -7,7 +7,8 @@ import com.cookandroid.invasion.Option.RoomDB.ContactDao
 import com.cookandroid.invasion.Option.RoomDB.ContactDatabase
 import java.lang.Exception
 
-class ContactRepository(application: Application) { // DB 인스턴스 호출해 사용
+class ContactRepository(application: Application) {
+    // DB 인스턴스 호출해 사용
     // Database, Dao, contacts 각각 초기화
     private val contactDatabase = ContactDatabase.getInstance(application)!!
     private val contactDao: ContactDao = contactDatabase.contactDao()

@@ -8,10 +8,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
-
-
         <ImageView
-            android:id="@+id/ImgIcon1"
+            android:id="@+id/Imgcall"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
@@ -22,7 +20,7 @@
             android:src="@drawable/callingicon" />
 
         <TextView
-            android:id="@+id/txtInfo1"
+            android:id="@+id/txtnumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"

@@ -43,7 +43,7 @@ class EmergencyOptionAddActivity : AppCompatActivity() {
         }
     }
 
-    // intent extra로 사용할 상수
+        // intent extra로 사용할 상수
     companion object {
         const val EXTRA_CONTACT_NUMBER = "EXTRA_CONTACT_NUMBER"
         const val EXTRA_CONTACT_ID = "EXTRA_CONTACT_ID"

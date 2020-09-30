@@ -8,14 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cookandroid.invasion.Option.RoomDB.Contact
 import com.cookandroid.invasion.R
 
-// contactItemClick, contactItemLongClick 형태로 클릭했을 때와 롱클릭했을 때의 액션을 각각
-// EmergencyOptionActivity에 넘겨줌
+    // contactItemClick, contactItemLongClick 형태로 클릭했을 때와 롱클릭했을 때의 액션을 각각
+    // EmergencyOptionActivity에 넘겨줌
 class ContactAdapter(val contactItemClick: (Contact) -> Unit, val contactItemLongClick: (Contact) -> Unit)
     : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
     private var contacts: List<Contact> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.option_call, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_optioncall, parent, false)
         return ViewHolder(view)
     }
 
@@ -28,7 +28,7 @@ class ContactAdapter(val contactItemClick: (Contact) -> Unit, val contactItemLon
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val numberTv = itemView.findViewById<TextView>(R.id.txtInfo1)
+        private val numberTv = itemView.findViewById<TextView>(R.id.txtnumber)
 
         fun bind(contact: Contact) {
             numberTv.text = contact.number
