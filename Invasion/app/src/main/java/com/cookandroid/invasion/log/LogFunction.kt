@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.cookandroid.invasion.R
 import com.google.firebase.ktx.Firebase
@@ -37,8 +38,11 @@ class LogFunction : AppCompatActivity(){
                 .into(imgDetail) // log_function의 imageView에 띄우기
         }
 
+        // 더보기 버튼을 눌렀을 때
         btnShowImage.setOnClickListener {
-            startActivity(Intent(this, LogImage::class.java))
+            var intent = Intent(this, LogImage::class.java)
+            intent.putExtra("Image", nowImage)
+            ContextCompat.startActivity(this, intent, null)
         }
 
     }

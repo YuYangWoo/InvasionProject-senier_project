@@ -1,22 +1,27 @@
 package com.cookandroid.invasion.log
 
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.invasion.R
+import kotlinx.android.synthetic.main.activity_log_image.*
 
 class LogImage : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_image)
 
-
         // ActionBar Title 변경
-        supportActionBar?.title = "알림"
+        supportActionBar?.title = "사진 더보기"
 
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Intent를 사용해 LogFunction에서의 배열을 대입
+        var allImage: Array<String> = intent.getStringArrayExtra("Image")!!
+        gridViewImage.adapter = ImageAdapter(this, allImage)
     }
 
     // ActionBar ItemSelected 이벤트
@@ -31,3 +36,4 @@ class LogImage : AppCompatActivity() {
     }
 
 }
+
