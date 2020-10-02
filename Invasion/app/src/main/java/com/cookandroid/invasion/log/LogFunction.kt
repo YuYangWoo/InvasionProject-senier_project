@@ -2,12 +2,12 @@ package com.cookandroid.invasion.log
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.cookandroid.invasion.R
+import com.cookandroid.invasion.log.image.LogImageActivity
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_log_function.*
@@ -40,7 +40,7 @@ class LogFunction : AppCompatActivity(){
 
         // 더보기 버튼을 눌렀을 때
         btnShowImage.setOnClickListener {
-            var intent = Intent(this, LogImage::class.java)
+            var intent = Intent(this, LogImageActivity::class.java)
             intent.putExtra("Image", nowImage)
             ContextCompat.startActivity(this, intent, null)
         }

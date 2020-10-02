@@ -1,13 +1,12 @@
-package com.cookandroid.invasion.log
+package com.cookandroid.invasion.log.image
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.invasion.R
 import kotlinx.android.synthetic.main.activity_log_image.*
 
-class LogImage : AppCompatActivity() {
+class LogImageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

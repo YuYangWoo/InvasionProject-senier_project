@@ -37,8 +37,10 @@
         <service android:name="org.eclipse.paho.android.service.MqttService" />
         <activity android:name=".Option.AppInfo.AppInfoActivity"
             />
-        <activity android:name=".log.LogImage"
+        <activity android:name=".log.image.LogImageActivity"
             />
+        <activity android:name=".log.image.BigImageActivity"
+            android:theme= "@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

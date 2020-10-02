@@ -1,6 +1,8 @@
-package com.cookandroid.invasion.log
+package com.cookandroid.invasion.log.image
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
@@ -37,6 +39,13 @@ class ImageAdapter(var context: Context, var allImage:Array<String>) : BaseAdapt
             Glide.with(context) // 띄어줄 뷰를 명시
                 .load(imageURL) // 이미지 주소
                 .into(imageView) // 사진의 size만큼 imageview를 만들어 띄우기
+        }
+        // 이미지뷰 클릭 이벤트
+        imageView.setOnClickListener {
+            var intent = Intent(context, BigImageActivity::class.java)
+            intent.putExtra("allImage",allImage[position])
+            Log.d("allImage", allImage[position])
+            context.startActivity(intent)
         }
         return imageView
     }
