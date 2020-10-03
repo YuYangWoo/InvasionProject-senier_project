@@ -60,6 +60,7 @@ class LogFunction : AppCompatActivity(){
             // DB 테이블 연결
             databaseReference = database.getReference("cerberusTable").child("alarm")
 
+            // Dialog창 Title과 Message 설정
             val builder = AlertDialog.Builder(this)
             builder.setTitle("알림").setMessage("사이렌을 울리려면 켜기 끄려면 끄기를 누르세요")
 
@@ -75,10 +76,6 @@ class LogFunction : AppCompatActivity(){
 
             val alertDialog = builder.create()
             alertDialog.show()
-
-
-
-
         }
 
         // 더보기 버튼을 눌렀을 때
@@ -90,12 +87,35 @@ class LogFunction : AppCompatActivity(){
 
         // 현관확인 버튼을 눌렀을 때
         btnConfirm.setOnClickListener {
-
+            // 파이어베이스 데이터베이스 연동
+            database = FirebaseDatabase.getInstance()
+            // DB 테이블 연결
+            databaseReference = database.getReference("cerberusTable").child("door")
         }
 
         // 비상잠금 버튼을 눌렀을 때
         btnLock.setOnClickListener {
+            // 파이어베이스 데이터베이스 연동
+            database = FirebaseDatabase.getInstance()
+            // DB 테이블 연결
+            databaseReference = database.getReference("cerberusTable").child("doorlock")
 
+            // Dialog창 Title과 Message 설정
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("알림").setMessage("도어락 전원차단을 원하면 차단 전원 On을 원하면 On을 누르세요")
+
+            // 켜기 버튼을 누르면 값을 1로 바꾼다
+            builder.setPositiveButton("차단") { dialog: DialogInterface, id: Int ->
+                databaseReference.setValue(1)
+            }
+
+            // 끄기 버튼을 누르면 값을 0으로 바꾼다.
+            builder.setNegativeButton("On") { dialog: DialogInterface, id: Int ->
+                databaseReference.setValue(0)
+            }
+
+            val alertDialog = builder.create()
+            alertDialog.show()
         }
 
     }
