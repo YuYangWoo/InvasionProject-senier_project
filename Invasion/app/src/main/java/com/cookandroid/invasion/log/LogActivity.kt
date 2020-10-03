@@ -42,10 +42,10 @@ class LogActivity : AppCompatActivity(), OnRefreshListener {
         logList = ArrayList()
 
         // 파이어베이스 데이터베이스 연동
-        database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance()
 
         // DB 테이블 연결
-        databaseReference = database.getReference("logList");
+        databaseReference = database.getReference("logList")
 
         // logList에 DB데이터 연결
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {

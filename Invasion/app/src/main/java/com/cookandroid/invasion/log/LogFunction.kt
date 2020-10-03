@@ -1,19 +1,28 @@
 package com.cookandroid.invasion.log
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.cookandroid.invasion.Option.Emergency.EmergencyOptionActivity
 import com.cookandroid.invasion.R
 import com.cookandroid.invasion.log.image.LogImageActivity
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_log_function.*
 
+
 class LogFunction : AppCompatActivity(){
+
+    private lateinit var database: FirebaseDatabase
+    private lateinit var databaseReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_function)
@@ -44,11 +53,49 @@ class LogFunction : AppCompatActivity(){
             startActivity(Intent(this, EmergencyOptionActivity::class.java))
         }
 
+        // 경보음 버튼을 눌렀을 때
+        btnSiren.setOnClickListener {
+            // 파이어베이스 데이터베이스 연동
+            database = FirebaseDatabase.getInstance()
+            // DB 테이블 연결
+            databaseReference = database.getReference("cerberusTable").child("alarm")
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("알림").setMessage("사이렌을 울리려면 켜기 끄려면 끄기를 누르세요")
+
+            // 켜기 버튼을 누르면 값을 1로 바꾼다
+            builder.setPositiveButton("켜기") { dialog: DialogInterface, id: Int ->
+                databaseReference.setValue(1)
+            }
+
+            // 끄기 버튼을 누르면 값을 0으로 바꾼다.
+            builder.setNegativeButton("끄기") { dialog: DialogInterface, id: Int ->
+                databaseReference.setValue(0)
+            }
+
+            val alertDialog = builder.create()
+            alertDialog.show()
+
+
+
+
+        }
+
         // 더보기 버튼을 눌렀을 때
         btnShowImage.setOnClickListener {
             var intent = Intent(this, LogImageActivity::class.java)
             intent.putExtra("Image", nowImage)
             ContextCompat.startActivity(this, intent, null)
+        }
+
+        // 현관확인 버튼을 눌렀을 때
+        btnConfirm.setOnClickListener {
+
+        }
+
+        // 비상잠금 버튼을 눌렀을 때
+        btnLock.setOnClickListener {
+
         }
 
     }
