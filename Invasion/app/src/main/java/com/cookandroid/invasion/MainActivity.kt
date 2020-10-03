@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mqttAndroidClient = MqttAndroidClient(
-            this, "tcp://192.9.84.146:1883", MqttClient.generateClientId(),
+            this, "tcp://192.168.25.43:1883", MqttClient.generateClientId(),
             MemoryPersistence(), MqttAndroidClient.Ack.AUTO_ACK
         )
 

@@ -6,6 +6,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.cookandroid.invasion.Option.Emergency.EmergencyOptionActivity
 import com.cookandroid.invasion.R
 import com.cookandroid.invasion.log.image.LogImageActivity
 import com.google.firebase.ktx.Firebase
@@ -36,6 +37,11 @@ class LogFunction : AppCompatActivity(){
             Glide.with(this) // 띄어줄 뷰를 명시
                 .load(imageURL) // 이미지 주소
                 .into(imgDetail) // log_function의 imageView에 띄우기
+        }
+
+        // 비상연락 버튼을 눌렀을 때
+        btnEmergency.setOnClickListener {
+            startActivity(Intent(this, EmergencyOptionActivity::class.java))
         }
 
         // 더보기 버튼을 눌렀을 때
