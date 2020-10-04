@@ -40,6 +40,7 @@ class ImageAdapter(var context: Context, var allImage:Array<String>) : BaseAdapt
                 .load(imageURL) // 이미지 주소
                 .into(imageView) // 사진의 size만큼 imageview를 만들어 띄우기
         }
+
         // 이미지뷰 클릭 이벤트
         imageView.setOnClickListener {
             var intent = Intent(context, BigImageActivity::class.java)

@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,17 +13,18 @@ import com.bumptech.glide.Glide
 import com.cookandroid.invasion.Option.Emergency.EmergencyOptionActivity
 import com.cookandroid.invasion.R
 import com.cookandroid.invasion.log.image.LogImageActivity
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_log_function.*
+import kotlin.arrayOf as arrayOf1
 
 
 class LogFunction : AppCompatActivity(){
 
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var door:ArrayList<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_function)
@@ -33,7 +35,10 @@ class LogFunction : AppCompatActivity(){
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // 현재 시간 functionActivity에 적용
+        // lateinit한 door 초기화
+        door = ArrayList()
+
+        // 현재 시간 LogFunction의 TextView에 적용
         var currentTime = intent.getStringExtra("logTime")!!.toString()
         txtTime.text = currentTime
 
@@ -67,13 +72,13 @@ class LogFunction : AppCompatActivity(){
             // 켜기 버튼을 누르면 값을 1로 바꾼다
             builder.setPositiveButton("켜기") { dialog: DialogInterface, id: Int ->
                 databaseReference.setValue(1)
-                Toast.makeText(this,"경보음이 울렸습니다.",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "경보음이 울렸습니다.", Toast.LENGTH_SHORT).show()
             }
 
             // 끄기 버튼을 누르면 값을 0으로 바꾼다.
             builder.setNegativeButton("끄기") { dialog: DialogInterface, id: Int ->
                 databaseReference.setValue(0)
-                Toast.makeText(this,"경보음을 껐습니다.",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "경보음을 껐습니다.", Toast.LENGTH_SHORT).show()
             }
 
             val alertDialog = builder.create()
@@ -89,10 +94,35 @@ class LogFunction : AppCompatActivity(){
 
         // 현관확인 버튼을 눌렀을 때
         btnConfirm.setOnClickListener {
+            door.clear()
+
             // 파이어베이스 데이터베이스 연동
             database = FirebaseDatabase.getInstance()
+
             // DB 테이블 연결
-            databaseReference = database.getReference("cerberusTable").child("door")
+            databaseReference = database.getReference("cerberusTable")
+
+            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+
+                // data를 가져오는 메서드
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var msg: String?
+                for(a in snapshot.children) { // cerberusTable의 child값들을 door에 저장한다.
+                    msg = a.value.toString()
+                    door.add(msg)
+                }
+                    when(door[2].toInt()) {
+                        0 -> Toast.makeText(applicationContext, "현관문이 닫혀있습니다.", Toast.LENGTH_LONG).show()
+                        1 -> Toast.makeText(applicationContext, "현관문이 열려있습니다.", Toast.LENGTH_LONG).show()
+                        else -> Log.d("Error", "에러!!")
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d("Error", "에러!!")
+                }
+
+            })
         }
 
         // 비상잠금 버튼을 눌렀을 때
@@ -109,13 +139,13 @@ class LogFunction : AppCompatActivity(){
             // 켜기 버튼을 누르면 값을 1로 바꾼다
             builder.setPositiveButton("차단") { dialog: DialogInterface, id: Int ->
                 databaseReference.setValue(1)
-                Toast.makeText(this,"전원이 차단 되었습니다.",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "전원이 차단 되었습니다.", Toast.LENGTH_SHORT).show()
             }
 
             // 끄기 버튼을 누르면 값을 0으로 바꾼다.
             builder.setNegativeButton("On") { dialog: DialogInterface, id: Int ->
                 databaseReference.setValue(0)
-                Toast.makeText(this,"전원이 켜졌습니다.",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "전원이 켜졌습니다.", Toast.LENGTH_SHORT).show()
             }
 
             val alertDialog = builder.create()
