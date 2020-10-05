@@ -1,8 +1,6 @@
 package com.cookandroid.invasion.log.image
 
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -10,7 +8,6 @@ import com.cookandroid.invasion.R
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_big_image.*
-import kotlinx.android.synthetic.main.activity_log_function.*
 
 class BigImageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +19,7 @@ class BigImageActivity : AppCompatActivity() {
 
         // ImageAdapter의 allImage를 intent로 가져와 image에 대입
         var image = intent.getStringExtra("allImage")
-        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/" + image)
+        var imageReference = Firebase.storage("gs://cerberus-592f9.appspot.com").reference.child("cerb1/" + image)
         imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()
 

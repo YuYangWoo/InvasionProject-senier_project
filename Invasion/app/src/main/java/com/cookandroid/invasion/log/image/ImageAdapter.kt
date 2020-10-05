@@ -33,7 +33,7 @@ class ImageAdapter(var context: Context, var allImage:Array<String>) : BaseAdapt
         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
         // 파이어베이스 storage를 참고해 사진 더보기 기능 구현
-        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/" + allImage[position])
+        var imageReference = Firebase.storage("gs://cerberus-592f9.appspot.com").reference.child("cerb1/" + allImage[position])
         imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()
             Glide.with(context) // 띄어줄 뷰를 명시

@@ -44,7 +44,7 @@ class LogFunction : AppCompatActivity(){
 
         // recyclerView의 사진을 크게 띄우기
         var nowImage: Array<String> = intent.getStringArrayExtra("logPhoto")!!
-        var imageReference = Firebase.storage("gs://cerberus-8f761.appspot.com").reference.child("cerb1/" + nowImage[0])
+        var imageReference = Firebase.storage("gs://cerberus-592f9.appspot.com").reference.child("cerb1/" + nowImage[0])
         imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()
 
@@ -70,13 +70,13 @@ class LogFunction : AppCompatActivity(){
             builder.setTitle("알림").setMessage("사이렌을 울리려면 켜기 끄려면 끄기를 누르세요")
 
             // 켜기 버튼을 누르면 값을 1로 바꾼다
-            builder.setPositiveButton("켜기") { dialog: DialogInterface, id: Int ->
+            builder.setPositiveButton("켜기") { _: DialogInterface, _: Int ->
                 databaseReference.setValue(1)
                 Toast.makeText(this, "경보음이 울렸습니다.", Toast.LENGTH_SHORT).show()
             }
 
             // 끄기 버튼을 누르면 값을 0으로 바꾼다.
-            builder.setNegativeButton("끄기") { dialog: DialogInterface, id: Int ->
+            builder.setNegativeButton("끄기") { _: DialogInterface, _: Int ->
                 databaseReference.setValue(0)
                 Toast.makeText(this, "경보음을 껐습니다.", Toast.LENGTH_SHORT).show()
             }
@@ -137,13 +137,13 @@ class LogFunction : AppCompatActivity(){
             builder.setTitle("알림").setMessage("도어락 전원차단을 원하면 차단 전원 On을 원하면 On을 누르세요")
 
             // 켜기 버튼을 누르면 값을 1로 바꾼다
-            builder.setPositiveButton("차단") { dialog: DialogInterface, id: Int ->
+            builder.setPositiveButton("차단") { _: DialogInterface, _: Int ->
                 databaseReference.setValue(1)
                 Toast.makeText(this, "전원이 차단 되었습니다.", Toast.LENGTH_SHORT).show()
             }
 
             // 끄기 버튼을 누르면 값을 0으로 바꾼다.
-            builder.setNegativeButton("On") { dialog: DialogInterface, id: Int ->
+            builder.setNegativeButton("On") { _: DialogInterface, _: Int ->
                 databaseReference.setValue(0)
                 Toast.makeText(this, "전원이 켜졌습니다.", Toast.LENGTH_SHORT).show()
             }
