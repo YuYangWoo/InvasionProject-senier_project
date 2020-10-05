@@ -24,7 +24,6 @@ class LogFunction : AppCompatActivity(){
 
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
-    private lateinit var door:ArrayList<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_function)
@@ -34,9 +33,6 @@ class LogFunction : AppCompatActivity(){
 
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        // lateinit한 door 초기화
-        door = ArrayList()
 
         // 현재 시간 LogFunction의 TextView에 적용
         var currentTime = intent.getStringExtra("logTime")!!.toString()
@@ -94,24 +90,16 @@ class LogFunction : AppCompatActivity(){
 
         // 현관확인 버튼을 눌렀을 때
         btnConfirm.setOnClickListener {
-            door.clear()
-
-            // 파이어베이스 데이터베이스 연동
+            // DB RTDB에 접근해 cerberusTable의 door값의 reference를 참조
             database = FirebaseDatabase.getInstance()
-
-            // DB 테이블 연결
-            databaseReference = database.getReference("cerberusTable")
+            databaseReference = database.getReference("cerberusTable").child("door")
 
             databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-
                 // data를 가져오는 메서드
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var msg: String?
-                for(a in snapshot.children) { // cerberusTable의 child값들을 door에 저장한다.
-                    msg = a.value.toString()
-                    door.add(msg)
-                }
-                    when(door[2].toInt()) {
+                    var doorValue = snapshot.value.toString()
+
+                    when(doorValue.toInt()) {
                         0 -> Toast.makeText(applicationContext, "현관문이 닫혀있습니다.", Toast.LENGTH_LONG).show()
                         1 -> Toast.makeText(applicationContext, "현관문이 열려있습니다.", Toast.LENGTH_LONG).show()
                         else -> Log.d("Error", "에러!!")
