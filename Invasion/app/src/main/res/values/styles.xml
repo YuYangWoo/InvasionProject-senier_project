@@ -22,4 +22,10 @@
         <item name="windowFixedHeightMajor">30%</item>
         <item name="windowFixedWidthMinor">90%</item>
     </style>
+    <!-- 다이얼로그 지정2 !-->
+    <style name="Theme.MyDialog2" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowFixedHeightMajor">90%</item>
+        <item name="windowFixedWidthMinor">90%</item>
+    </style>
 </resources>

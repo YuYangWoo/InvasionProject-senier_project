@@ -1,31 +1,22 @@
 package com.cookandroid.invasion.Option.AppInfo
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.cookandroid.invasion.R
-import kotlinx.android.synthetic.main.activity_appinfo.*
 
-class AppInfoActivity : AppCompatActivity() {
+class OpenSourceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_appinfo)
+        setContentView(R.layout.activity_opensource)
 
-        // ActionBar 타이틀 변경
-        supportActionBar?.title = "앱 정보"
+        supportActionBar?.title = "오픈소스 라이선스"
 
-        // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        Infobtn4.setOnClickListener {
-            startActivity(Intent(this, PersonalInfoActivity::class.java))
-        }
-        Infobtn5.setOnClickListener {
-            startActivity(Intent(this, OpenSourceActivity::class.java))
-        }
+
     }
-        // ActionBar ItemSelect 이벤트
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {

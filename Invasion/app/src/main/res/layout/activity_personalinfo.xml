@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_personal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:ignore="ExtraText">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title_personal"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="1. 개인정보 처리방침이란?" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_personal"
+                android:lineSpacingMultiplier="1.2"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:text="주식회사 카카오는 이용자의 ‘동의를 기반으로 개인정보를 수집·이용 및 제공’하고 있으며, ‘이용자의 권리 (개인정보 자기결정권)를 적극적으로 보장’합니다.
+회사는 정보통신서비스제공자가 준수하여야 하는 대한민국의 관계 법령 및 개인정보보호 규정, 가이드라인을 준수하고 있습니다.
+“개인정보처리방침”이란 이용자의 소중한 개인정보를 보호함으로써 이용자가 안심하고 서비스를 이용할 수 있도록 회사가 준수해야 할 지침을 의미합니다.
+본 개인정보처리방침은 회사가 제공하는 카카오계정 기반의 서비스(이하 ‘서비스'라 함)에 적용됩니다." />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title2"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="2. 개인정보 수집" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt2"
+                android:lineSpacingMultiplier="1.2"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:text="개인정보를 수집하는 경우에는 반드시 사전에 이용자에게 해당 사실을 알리고 동의를 구하고 있으며, 아래와 같은 방법을 통해 개인정보를 수집합니다.
+
+\n- 회원가입 및 서비스 이용 과정에서 이용자가 개인정보 수집에 대해 동의를 하고 직접 정보를 입력하는 경우
+\n- 제휴 서비스 또는 단체 등으로부터 개인정보를 제공받은 경우
+\n- 고객센터를 통한 상담 과정에서 웹페이지, 메일, 팩스, 전화 등
+\n- 온·오프라인에서 진행되는 이벤트/행사 등 참여" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title3"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="3. 개인정보 이용" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt3"
+                android:lineSpacingMultiplier="1.2"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:text="- 회원 식별/가입의사 확인, 본인/연령 확인, 부정이용 방지
+\n- 만 14세 미만 아동 개인정보 수집 시 법정 대리인 동의여부 확인, 법정 대리인 권리행사 시 본인 확인
+\n- 이용자간 메시지 전송, 친구등록 및 친구추천 기능의 제공
+\n- 친구에게 활동내역을 알리거나 이용자 검색, 등록 등의 기능 제공
+\n- 신규 서비스 개발, 다양한 서비스 제공, 문의사항 또는 불만처리, 공지사항 전달
+\n- 유료서비스 이용 시 컨텐츠 등의 전송이나 배송·요금 정산
+\n- 서비스의 원활한 운영에 지장을 주는 행위(계정 도용 및 부정 이용 행위 등 포함)에 대한 방지 및 제재
+\n- 인구통계학적 특성과 이용자의 관심, 기호, 성향의 추정을 통한 맞춤형 컨텐츠 추천 및 마케팅에 활용
+\n- 음성명령 처리 및 음성인식 향상, 개인화 서비스 제공
+\n- 서비스 이용 기록, 접속 빈도 및 서비스 이용에 대한 통계, 프라이버시 보호 측면의 서비스 환경 구축, 서비스 개선에 활용" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

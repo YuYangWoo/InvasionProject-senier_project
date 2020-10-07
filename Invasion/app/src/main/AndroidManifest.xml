@@ -37,10 +37,22 @@
         <service android:name="org.eclipse.paho.android.service.MqttService" />
         <activity android:name=".Option.AppInfo.AppInfoActivity"
             />
+        <activity android:name=".Option.AppInfo.OpenSourceActivity"
+            android:theme="@style/Theme.MyDialog2" />
+        <activity android:name=".Option.AppInfo.PersonalInfoActivity"
+            />
         <activity android:name=".log.image.LogImageActivity"
             />
         <activity android:name=".log.image.BigImageActivity"
             android:theme= "@style/AppTheme.NoActionBar"/>
+
+        <service
+            android:name=".FCM.MyFirebaseMessagingService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
