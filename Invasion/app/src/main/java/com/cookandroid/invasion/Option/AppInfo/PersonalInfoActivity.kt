@@ -10,12 +10,15 @@ class PersonalInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personalinfo)
 
+        // ActionBar 타이틀 변경
         supportActionBar?.title = "개인정보 처리방침"
 
+        // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
 
+        // ActionBar ItemSelect 이벤트
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {

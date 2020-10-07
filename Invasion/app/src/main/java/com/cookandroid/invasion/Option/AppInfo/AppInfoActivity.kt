@@ -18,9 +18,12 @@ class AppInfoActivity : AppCompatActivity() {
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // 개인정보 처리방침 버튼 이벤트
         Infobtn4.setOnClickListener {
             startActivity(Intent(this, PersonalInfoActivity::class.java))
         }
+
+        // 오픈소스 라이선스 버튼 이벤트
         Infobtn5.setOnClickListener {
             startActivity(Intent(this, OpenSourceActivity::class.java))
         }
