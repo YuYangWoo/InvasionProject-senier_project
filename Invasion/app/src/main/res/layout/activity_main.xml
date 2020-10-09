@@ -35,13 +35,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.6" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnOption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:text="option"
+            android:background="#00ff0000"
+            android:src="@drawable/mainoptionlogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -95,11 +96,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cstLyMid">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnLog"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Log"
+            android:background="#00ff0000"
+            android:src="@drawable/mainlogo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.4"
