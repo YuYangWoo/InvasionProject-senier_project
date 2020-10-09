@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cstLyFunction"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/logback">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cstLyImage"
@@ -46,7 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:textColor="#000000"
+            android:textColor="#A4A4A4"
             android:textSize="14dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,60 +66,70 @@
             app:layout_constraintTop_toBottomOf="@+id/txtTime"
             app:layout_constraintWidth_percent="1.0">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnEmergency"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="22dp"
                 android:text="비상연락"
+                android:src="@drawable/emercallicon"
+                android:background="#00ff0000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.15" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnSiren"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="15dp"
                 android:text="경보음"
+                android:src="@drawable/sirenicon"
+                android:background="#00ff0000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="1.0"
                 app:layout_constraintStart_toEndOf="@+id/btnEmergency"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.15" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnShowImage"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="15dp"
                 android:text="더보기"
+                android:src="@drawable/bigimageicon"
+                android:background="#00ff0000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="1.0"
                 app:layout_constraintStart_toEndOf="@+id/btnSiren"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.15" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnConfirm"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="15dp"
                 android:text="현관 확인"
+                android:src="@drawable/dooricon"
+                android:background="#00ff0000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="1.0"
                 app:layout_constraintStart_toEndOf="@+id/btnShowImage"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.15" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnLock"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="15dp"
                 android:text="비상 잠금"
+                android:src="@drawable/lockicon"
+                android:background="#00ff0000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="1.0"
                 app:layout_constraintStart_toEndOf="@+id/btnConfirm"
