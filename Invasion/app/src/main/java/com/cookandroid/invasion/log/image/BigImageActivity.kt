@@ -27,5 +27,6 @@ class BigImageActivity : AppCompatActivity() {
                 .load(imageURL) // 이미지 주소
                 .into(bigImage) // log_function의 imageView에 띄우기
         }
+
     }
 }
