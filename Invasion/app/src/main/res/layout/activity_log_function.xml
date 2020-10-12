@@ -61,168 +61,215 @@
             android:layout_height="0dp"
             android:layout_marginTop="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintHeight_percent="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtTime"
             app:layout_constraintWidth_percent="1.0">
 
-            <ImageButton
-                android:id="@+id/btnEmergency"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cstLyEmergency"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="22dp"
-                android:text="비상연락"
-                android:src="@drawable/emercallicon"
-                android:background="@drawable/ripple_unbounded"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHeight_percent="1.0"
+                app:layout_constraintEnd_toStartOf="@+id/cstLySiren"
+                app:layout_constraintHeight_percent="0.8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15"
-                />
+                app:layout_constraintWidth_percent="0.2">
 
-            <ImageButton
-                android:id="@+id/btnSiren"
+                <ImageButton
+                    android:id="@+id/btnEmergency"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ripple_unbounded"
+                    android:src="@drawable/emercallicon"
+                    android:text="비상연락"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+
+                <TextView
+                    android:id="@+id/txtEmergency"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="비상 연락"
+                    android:textColor="#BDBDBD"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.23"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cstLySiren"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="15dp"
-                android:text="경보음"
-                android:src="@drawable/sirenicon"
-                android:background="@drawable/ripple_unbounded"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toEndOf="@+id/btnEmergency"
+                app:layout_constraintEnd_toStartOf="@+id/cstLyPhoto"
+                app:layout_constraintHeight_percent="0.8"
+                app:layout_constraintStart_toEndOf="@+id/cstLyEmergency"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15" />
+                app:layout_constraintWidth_percent="0.2">
 
-            <ImageButton
-                android:id="@+id/btnShowImage"
+                <ImageButton
+                    android:id="@+id/btnSiren"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ripple_unbounded"
+                    android:src="@drawable/sirenicon"
+                    android:text="경보음"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+
+                <TextView
+                    android:id="@+id/txtSiren"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="경보음"
+                    android:textColor="#BDBDBD"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.23"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cstLyPhoto"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="15dp"
-                android:text="더보기"
-                android:src="@drawable/bigimageicon"
-                android:background="@drawable/ripple_unbounded"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toEndOf="@+id/btnSiren"
+                app:layout_constraintEnd_toStartOf="@+id/cstLyConfirm"
+                app:layout_constraintHeight_percent="0.8"
+                app:layout_constraintStart_toEndOf="@+id/cstLySiren"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15" />
+                app:layout_constraintWidth_percent="0.2">
 
-            <ImageButton
-                android:id="@+id/btnConfirm"
+                <ImageButton
+                    android:id="@+id/btnShowImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ripple_unbounded"
+                    android:src="@drawable/bigimageicon"
+                    android:text="더보기"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+
+                <TextView
+                    android:id="@+id/txtShowImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="더보기"
+                    android:textColor="#BDBDBD"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.23"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cstLyConfirm"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="15dp"
-                android:text="현관 확인"
-                android:src="@drawable/dooricon"
-                android:background="@drawable/ripple_unbounded"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toEndOf="@+id/btnShowImage"
+                app:layout_constraintEnd_toStartOf="@+id/cstLyLock"
+                app:layout_constraintHeight_percent="0.8"
+                app:layout_constraintStart_toEndOf="@+id/cstLyPhoto"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15" />
+                app:layout_constraintWidth_percent="0.2">
 
-            <ImageButton
-                android:id="@+id/btnLock"
+                <ImageButton
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ripple_unbounded"
+                    android:src="@drawable/dooricon"
+                    android:text="현관 확인"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+
+                <TextView
+                    android:id="@+id/txtConfirm"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="현관 확인"
+                    android:textColor="#BDBDBD"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.23"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cstLyLock"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="15dp"
-                android:text="비상 잠금"
-                android:src="@drawable/lockicon"
-                android:background="@drawable/ripple_unbounded"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toEndOf="@+id/btnConfirm"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cstLyTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cstLyBtn"
-            app:layout_constraintWidth_percent="1.0">
-
-            <TextView
-                android:id="@+id/txtEmergency"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="27dp"
-                android:text="비상 연락"
-                android:textColor="#BDBDBD"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:layout_constraintWidth_percent="0.15" />
-
-            <TextView
-                android:id="@+id/txtSiren"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="2dp"
-                android:text="경보음"
-                android:textColor="#BDBDBD"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toEndOf="@+id/txtEmergency"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:layout_constraintWidth_percent="0.15" />
-
-            <TextView
-                android:id="@+id/txtShowImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="1dp"
-                android:text="더보기"
-                android:textColor="#BDBDBD"
-                android:textStyle="bold"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toEndOf="@+id/txtSiren"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15" />
-
-            <TextView
-                android:id="@+id/txtConfirm"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="1dp"
-                android:text="현관 확인"
-                android:textColor="#BDBDBD"
-                android:textStyle="bold"
-                app:layout_constraintHeight_percent="1.0"
-                app:layout_constraintStart_toEndOf="@+id/txtShowImage"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15" />
-
-            <TextView
-                android:id="@+id/txtLock"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="18dp"
-                android:text="비상 잠금"
-                android:textColor="#BDBDBD"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="1.0"
+                app:layout_constraintHeight_percent="0.8"
+                app:layout_constraintStart_toEndOf="@+id/cstLyConfirm"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:layout_constraintWidth_percent="0.15" />
+                app:layout_constraintVertical_bias="0.454"
+                app:layout_constraintWidth_percent="0.2">
+
+                <ImageButton
+                    android:id="@+id/btnLock"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ripple_unbounded"
+                    android:src="@drawable/lockicon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+
+                <TextView
+                    android:id="@+id/txtLock"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="비상 잠금"
+                    android:textColor="#BDBDBD"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.23"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
