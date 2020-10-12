@@ -100,13 +100,14 @@
             android:id="@+id/btnLog"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00ff0000"
             android:src="@drawable/mainlogo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.4" />
+            app:layout_constraintWidth_percent="0.4"
+            android:background="@drawable/ripple_unbounded"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
