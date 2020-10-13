@@ -97,9 +97,9 @@ class LogFunction : AppCompatActivity(){
             databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
                 // data를 가져오는 메서드
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var doorValue = snapshot.value.toString()
+                    var doorValue = Integer.parseInt(snapshot.value.toString())
 
-                    when(doorValue.toInt()) {
+                    when(doorValue) {
                         0 -> Toast.makeText(applicationContext, "현관문이 닫혀있습니다.", Toast.LENGTH_LONG).show()
                         1 -> Toast.makeText(applicationContext, "현관문이 열려있습니다.", Toast.LENGTH_LONG).show()
                         else -> Log.d("Error", "에러!!")

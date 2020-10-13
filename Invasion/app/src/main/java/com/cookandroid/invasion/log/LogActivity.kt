@@ -12,6 +12,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.cookandroid.invasion.R
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_log.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class LogActivity : AppCompatActivity(), OnRefreshListener {
@@ -58,6 +60,7 @@ class LogActivity : AppCompatActivity(), OnRefreshListener {
                     val log = snapshot.getValue(LogItem::class.java) // 만들어뒀던 객체에 데이터를 담는다.
                     logList.add(log!!) // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
                 }
+
                 logAdapter.notifyDataSetChanged() // 리스트 저장 및 새로고침해야 반영이 됨
             }
 
