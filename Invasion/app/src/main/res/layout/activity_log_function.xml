@@ -82,11 +82,12 @@
                     android:id="@+id/btnEmergency"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/ripple_unbounded"
                     android:src="@drawable/emercallicon"
                     android:text="비상연락"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintHeight_percent="0.8"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="1" />
@@ -99,11 +100,11 @@
                     android:text="비상 연락"
                     android:textColor="#BDBDBD"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.23"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnEmergency"
                     app:layout_constraintWidth_percent="1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -122,12 +123,14 @@
                     android:id="@+id/btnSiren"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/ripple_unbounded"
                     android:src="@drawable/sirenicon"
                     android:text="경보음"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintHeight_percent="0.8"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="1" />
@@ -140,11 +143,11 @@
                     android:text="경보음"
                     android:textColor="#BDBDBD"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.23"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSiren"
                     app:layout_constraintWidth_percent="1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -166,9 +169,8 @@
                     android:background="@drawable/ripple_unbounded"
                     android:src="@drawable/bigimageicon"
                     android:text="더보기"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintHeight_percent="0.8"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="1" />
@@ -181,11 +183,11 @@
                     android:text="더보기"
                     android:textColor="#BDBDBD"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.23"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnShowImage"
                     app:layout_constraintWidth_percent="1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -207,9 +209,9 @@
                     android:background="@drawable/ripple_unbounded"
                     android:src="@drawable/dooricon"
                     android:text="현관 확인"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintHeight_percent="0.8"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="1" />
@@ -222,11 +224,11 @@
                     android:text="현관 확인"
                     android:textColor="#BDBDBD"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.23"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnConfirm"
                     app:layout_constraintWidth_percent="1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -248,9 +250,8 @@
                     android:layout_height="0dp"
                     android:background="@drawable/ripple_unbounded"
                     android:src="@drawable/lockicon"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="1.0"
+                    app:layout_constraintHeight_percent="0.8"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="1" />
@@ -263,11 +264,11 @@
                     android:text="비상 잠금"
                     android:textColor="#BDBDBD"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.23"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnLock"
                     app:layout_constraintWidth_percent="1" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
