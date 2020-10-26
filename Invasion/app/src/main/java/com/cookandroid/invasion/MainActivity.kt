@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
 
         // DB 테이블 연결
-        databaseReference = database.getReference("logList")
+        databaseReference = database.getReference("LogList")
 
         // logList에 DB데이터 연결
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
