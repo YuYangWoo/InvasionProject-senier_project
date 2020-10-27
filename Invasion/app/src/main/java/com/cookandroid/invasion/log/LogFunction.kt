@@ -51,7 +51,7 @@ class LogFunction : AppCompatActivity(){
 
         // 비상연락 버튼을 눌렀을 때
         btnEmergency.setOnClickListener {
-            startActivity(Intent(this, EmergencyOptionActivity::class.java))
+            startActivity(Intent(this, LogEmergencyActivity::class.java))
         }
 
         // 경보음 버튼을 눌렀을 때

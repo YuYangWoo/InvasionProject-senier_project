@@ -19,6 +19,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     // 파이어베이스 서비스의 토큰을 가져온다
     override fun onNewToken(token: String?) {
         Log.d(TAG, "new Token: $token")
+
     }
     
     // 새로운 FCM 메시지가 있을 때 메세지를 받는다
@@ -41,6 +42,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             putExtra("Notification", body)
         }
 
+        Log.d("Firebase", "뜨나요?")
         var pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
         val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 

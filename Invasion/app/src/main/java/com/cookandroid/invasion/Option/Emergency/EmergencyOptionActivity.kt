@@ -1,6 +1,7 @@
 package com.cookandroid.invasion.Option.Emergency
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
@@ -30,10 +31,11 @@ class EmergencyOptionActivity : AppCompatActivity() {
         // contactItemClick & contactItemLongClick 람다 지정
         // contact 정보 & EmergencyOptionAddActivity의 나머지 불러오기
         val adapter = ContactAdapter({ contact ->
-            val intent = Intent(this, EmergencyOptionAddActivity::class.java)
-            intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_NUMBER, contact.number)
-            intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_ID, contact.id)
-            startActivity(intent)
+            // 클릭 시 편집 기능 전부 주석 처리
+            // val intent = Intent(this, EmergencyOptionAddActivity::class.java)
+            // intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_NUMBER, contact.number)
+            // intent.putExtra(EmergencyOptionAddActivity.EXTRA_CONTACT_ID, contact.id)
+            // startActivity(intent)
 
         }, { contact ->
             deleteDialog(contact)

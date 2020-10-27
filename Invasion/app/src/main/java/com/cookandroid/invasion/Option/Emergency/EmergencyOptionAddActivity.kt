@@ -23,10 +23,11 @@ class EmergencyOptionAddActivity : AppCompatActivity() {
         contactViewModel = ViewModelProviders.of(this).get(ContactViewModel::class.java)
 
         // 만약 intent가 null이 아니고 extra에 번호가 들어있다면 EditText와 id값 지정
-        if (intent != null && intent.hasExtra(EXTRA_CONTACT_NUMBER)) {
-            add_et_number.setText(intent.getStringExtra(EXTRA_CONTACT_NUMBER))
-            id = intent.getLongExtra(EXTRA_CONTACT_ID, -1)
-        }
+        // 클릭 시 편집 기능 전부 주석처리
+        // if (intent != null && intent.hasExtra(EXTRA_CONTACT_NUMBER)) {
+            // add_et_number.setText(intent.getStringExtra(EXTRA_CONTACT_NUMBER))
+            // id = intent.getLongExtra(EXTRA_CONTACT_ID, -1)
+        // }
 
         // Done 버튼을 통해 EditText의 null 체크를 한 후 ViewModel을 통해 insert후 EmergencyOptionActivity로 돌아감
         // id값이 null일 경우 Room에서 자동으로 id 생성, 새로운 contact를 DB에 추가(DAO에서 OnConflictStrategy를 Replace로 설정해뒀기 때문)
@@ -43,9 +44,10 @@ class EmergencyOptionAddActivity : AppCompatActivity() {
         }
     }
 
-        // intent extra로 사용할 상수
-    companion object {
-        const val EXTRA_CONTACT_NUMBER = "EXTRA_CONTACT_NUMBER"
-        const val EXTRA_CONTACT_ID = "EXTRA_CONTACT_ID"
-    }
+    // intent extra로 사용할 상수
+    // 클릭 시 편집 기능 전부 주석 처리
+    // companion object {
+        // const val EXTRA_CONTACT_NUMBER = "EXTRA_CONTACT_NUMBER"
+        // const val EXTRA_CONTACT_ID = "EXTRA_CONTACT_ID"
+    // }
 }
