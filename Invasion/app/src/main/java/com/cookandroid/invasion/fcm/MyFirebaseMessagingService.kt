@@ -5,20 +5,31 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
+import android.provider.Settings
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.cookandroid.invasion.MainActivity
 import com.cookandroid.invasion.R
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     private val TAG = "FirebaseService"
+    private lateinit var database: FirebaseDatabase
+    private lateinit var databaseReference: DatabaseReference
 
     // 파이어베이스 서비스의 토큰을 가져온다
     override fun onNewToken(token: String?) {
         Log.d(TAG, "new Token: $token")
+
+        //파베 연결해서 토큰 날려줘야함. 단 한번만 날린다.
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database.getReference("Token")
+        val idByANDROID_ID: String = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID)
+        databaseReference.child(idByANDROID_ID).setValue(token);
     }
     
     // 새로운 FCM 메시지가 있을 때 메세지를 받는다
