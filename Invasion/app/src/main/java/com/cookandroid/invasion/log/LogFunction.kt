@@ -29,7 +29,7 @@ class LogFunction : AppCompatActivity(){
         setContentView(R.layout.activity_log_function)
 
         // ActionBar Title 변경
-        supportActionBar?.title = "알림"
+        supportActionBar?.title = "기능"
 
         // ActionBar Home 버튼 Enable
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
