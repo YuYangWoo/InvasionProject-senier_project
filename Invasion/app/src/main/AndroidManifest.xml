@@ -46,7 +46,7 @@
         <activity android:name=".log.image.BigImageActivity"
             android:theme= "@style/AppTheme.NoActionBar"/>
         <activity android:name=".log.LogEmergencyActivity"
-            android:theme= "@style/Theme.MyDialog3"/>
+            android:theme= "@style/Theme.MyDialog2"/>
         <service
             android:name=".fcm.MyFirebaseMessagingService">
             <intent-filter>
