@@ -97,7 +97,11 @@ class LogFunction : AppCompatActivity(){
             databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
                 // data를 가져오는 메서드
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var doorValue = Integer.parseInt(snapshot.value.toString())
+                    var doorValue = snapshot.value
+                    if(doorValue is Double)
+                        doorValue = doorValue.toInt()
+                    else if(doorValue is Float)
+                        doorValue = doorValue.toInt()
 
                     when(doorValue) {
                         0 -> Toast.makeText(applicationContext, "현관문이 닫혀있습니다.", Toast.LENGTH_LONG).show()
