@@ -23,10 +23,10 @@
 유양우, 김재환, 김민지
 
 ## 🐔  Languages & IDE
-App : Kotlin & Android Studio
-IOT : Python 3 & VI Editor
-로컬 Server : NodeJS
-로컬 DB : Firebase
+- App : Kotlin & Android Studio
+- IOT : Python 3 & VI Editor
+- 로컬 Server : NodeJS
+- 로컬 DB : Firebase
 
 ## 🐖  Environment
 -   Operating System : Window10 64bit
