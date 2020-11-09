@@ -4,18 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.cookandroid.invasion.OptionActivity
 import com.cookandroid.invasion.log.LogActivity
 import com.cookandroid.invasion.log.LogItem
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
-import org.eclipse.paho.android.service.MqttAndroidClient
-import org.eclipse.paho.client.mqttv3.*
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
 
-
-class MainActivity : AppCompatActivity() {
-    private lateinit var logList: ArrayList<LogItem>
+class MainActivity() : AppCompatActivity() {
+    private var logList: ArrayList<LogItem> = ArrayList()
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
 
@@ -25,8 +20,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        logList = ArrayList()
 
         // btnLog 클릭 이벤트
         btnLog.setOnClickListener {
@@ -66,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.e("Error", databaseError.toException().toString())
             }
+
         })
     }
 
