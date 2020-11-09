@@ -21,18 +21,6 @@ class MainActivity() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // btnLog 클릭 이벤트
-        btnLog.setOnClickListener {
-            // LogActivity 호출
-            startActivity(Intent(this, LogActivity::class.java))
-        }
-
-        // btnOption 클릭 이벤트
-        btnOption.setOnClickListener {
-            // OptionActivity 호출
-            startActivity(Intent(this, OptionActivity::class.java))
-        }
-
         // 메인화면 알람 개수
 
         // 파이어베이스 데이터베이스 연동
@@ -61,6 +49,21 @@ class MainActivity() : AppCompatActivity() {
             }
 
         })
+
+        // btnLog 클릭 이벤트
+        btnLog.setOnClickListener {
+            // LogActivity 호출
+            var logIntent = Intent(this, LogActivity::class.java)
+            logIntent.putExtra("logList", logList)
+            startActivity(logIntent)
+        }
+
+        // btnOption 클릭 이벤트
+        btnOption.setOnClickListener {
+            // OptionActivity 호출
+            startActivity(Intent(this, OptionActivity::class.java))
+        }
+
     }
 
     // Back 버튼을 눌렀을 때

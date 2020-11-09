@@ -16,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
 
-class CustomAdapter(private val logList: ArrayList<LogItem>, private val context: Context) : RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
+class LogAdapter(private val logList: ArrayList<LogItem>, private val context: Context) : RecyclerView.Adapter<LogAdapter.CustomViewHolder>() {
 
     // 실제 리스트뷰가 어댑터에 연결된 다음에 뷰 홀더를 최초로 만들어낸다.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
@@ -27,6 +27,7 @@ class CustomAdapter(private val logList: ArrayList<LogItem>, private val context
     // ImageView를 Glide를 사용하여 로드하고 info와 time도 대입시킨다.
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         var photoList = logList[position].logPhoto!!.split(",".toRegex()).toTypedArray()
+        Log.d("test", photoList[0])
         var imageReference = Firebase.storage("gs://cerberus-592f9.appspot.com").reference.child("cerb1/" + photoList[0])
         imageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()

@@ -24,12 +24,6 @@ const options = {
         'notification': {
             'body': '',
             'title': '',
-            'key_1': ''
-        },
-        'data': {
-          'body': '',
-          'title': '',
-          'key_1': ''
         },
         "message": {
           "data" : {
